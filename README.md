@@ -53,17 +53,17 @@
 
 #### SWEA
 
-- SWEA/hw/폴더명/문제명.java
-- SWEA/hw/폴더명/문제명.cpp
-- SWEA/mj/폴더명/문제명.java
-- SWEA/mj/폴더명/문제명.cpp
+- SWEA/hw/폴더명/p문제번호_문제명.java
+- SWEA/hw/폴더명/p문제번호_문제명.cpp
+- SWEA/mj/폴더명/p문제번호_문제명.java
+- SWEA/mj/폴더명/p문제번호_문제명.cpp
 
 #### 백준
 
-- Baekjoon/hw/폴더명/문제번호_문제명.java
-- Baekjoon/hw/폴더명/문제번호_문제명.cpp
-- Baekjoon/mj/폴더명/문제번호_문제명.java
-- Baekjoon/mj/폴더명/문제번호_문제명.cpp
+- Baekjoon/hw/폴더명/p문제번호_문제명.java
+- Baekjoon/hw/폴더명/p문제번호_문제명.cpp
+- Baekjoon/mj/폴더명/p문제번호_문제명.java
+- Baekjoon/mj/폴더명/p문제번호_문제명.cpp
 
 ## 일정표
 
