@@ -1,41 +1,159 @@
 package SWEA.mj.second_step;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class p1974_스도쿠검증 {
-
 	public static void main(String[] args) throws IOException{
-
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+//		List<Integer> list = new ArrayList<>();
+
+		int[] list = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
 
 		int T = Integer.parseInt(br.readLine());
 
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-		StringBuffer sb = new StringBuffer();
-
 		for(int testCase = 0; testCase < T; testCase++) {
-			int sum = 0;
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			for(int cnt = 0; cnt < 10; cnt++) {
-				int num = Integer.parseInt(st.nextToken());
-				if(num%2!=0) {
-					sum+=num;
+			int[][] board = new int[9][9];
+			for(int r = 0; r < 9; r ++) {
+				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+				for(int c = 0; c < 9; c++) {
+					board[r][c] = Integer.parseInt(st.nextToken());
 				}
 			}
-			sb.append("#"+(testCase+1)+" " + sum+"\n");
+
+			boolean flag = true; // 이상 없다면 true
+
+			// 가로 검열
+			for(int r = 0; r < 9; r++) {
+				List newL = new ArrayList<>();
+				for(int i = 0; i < 9 ; i ++) {
+					newL.add(list[i]);
+				}
+				for(int c = 0; c < 9; c++) {
+
+					if(newL.contains(board[r][c])) {
+
+						newL.remove(newL.indexOf(board[r][c]));
+					}else {
+						flag = false;
+						break;
+					}
+				}
+			}
+
+			if(flag) {
+				for(int r = 0; r < 9; r++) {
+					List newL = new ArrayList<>();
+					for(int i = 0; i < 9 ; i ++) {
+						newL.add(list[i]);
+					}
+					for(int c = 0; c < 9; c++) {
+						if(newL.contains(board[c][r])) {
+							newL.remove(newL.indexOf(board[c][r]));
+						}else {
+							flag = false;
+							break;
+						}
+					}
+				}
+			}
+
+			if(flag) {
+				for(int r = 0; r < 3; r++) {
+
+
+
+					for(int c = 0; c<3; c++) {
+						List newL = new ArrayList<>();
+						for(int i = 0; i < 9 ; i ++) {
+							newL.add(list[i]);
+						}
+
+						if(newL.contains(board[3*r][3*c])) {
+							newL.remove(newL.indexOf(board[3*r][3*c]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r][3*c+1])) {
+							newL.remove(newL.indexOf(board[3*r][3*c+1]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r][3*c+2])) {
+							newL.remove(newL.indexOf(board[r*3][c*3+2]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r+1][3*c])) {
+							newL.remove(newL.indexOf(board[r*3+1][3*c]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r+1][3*c+1])) {
+							newL.remove(newL.indexOf(board[r*3+1][c*3+1]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r+1][3*c+2])) {
+							newL.remove(newL.indexOf(board[r*3+1][3*c+2]));
+						}else {
+							flag = false;
+							break;
+						}
+
+
+						if(newL.contains(board[3*r+2][3*c])) {
+							newL.remove(newL.indexOf(board[3*r+2][c*3]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r+2][3*c+1])) {
+							newL.remove(newL.indexOf(board[r*3+2][c*3+1]));
+						}else {
+							flag = false;
+							break;
+						}
+
+						if(newL.contains(board[3*r+2][3*c+2])) {
+							newL.remove(newL.indexOf(board[r*3+2][c*3+2]));
+						}else {
+							flag = false;
+							break;
+						}
+
+
+					}
+				}
+			}
+
+			if(flag) {
+				System.out.println("#" + (testCase+1) + " " + 1);
+			}else {
+				System.out.println("#" + (testCase+1) + " 0");
+			}
 
 		}
 
-		bw.append(sb.toString());
-		bw.flush();
-		br.close();
-		bw.close();
+
 
 	}
 
