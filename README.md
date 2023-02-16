@@ -43,7 +43,7 @@
 
 - [Baekjoon-폴더명] 이름
 
-#### Commit Message
+#### Commit Message (폴더명으로도 가능)
 
 - [SWEA-문제번호] 문제명
 
